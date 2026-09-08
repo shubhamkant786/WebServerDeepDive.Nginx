@@ -1,0 +1,52 @@
+services:
+  api:
+    image: ${DOCKER_REGISTRY-}webserverdeepdivedockercomposenginxapi
+    build: 
+      context: .
+      dockerfile: WebServerDeepDive.DockerCompose.Nginx/Dockerfile
+    ports: 
+      - 3001:8080 #hostport:containerport
+    # deploy:
+    #     replicas: 3
+    depends_on:
+            db:
+                condition: service_healthy
+  app:
+    build: 
+      context: .
+      dockerfile: WebServerDeepDive.DockerCompose.Nginx.UI/Dockerfile
+    ports: 
+      - 3000:3000
+    volumes:
+      - ui_data:/app
+      - /app/node_modules/
+  proxy:
+    build: 
+      context: .
+      dockerfile: WebServerDeepDive.DockerCompose.Nginx/nginx/Dockerfile
+    ports: 
+      - 8080:80
+    depends_on:
+      - app
+      - api
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_DB: apidb
+    ports:
+      - '5432:5432'
+    healthcheck:
+            test: ["CMD-SHELL", "pg_isready -U postgres"]
+            interval: 5s
+            timeout: 5s
+            retries: 5
+volumes:
+  ui_data:
+  db_data:
+
+

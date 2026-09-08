@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36429.23 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServerDeepDive.DockerCompose.Nginx.API", "WebServerDeepDive.DockerCompose.Nginx\WebServerDeepDive.DockerCompose.Nginx.API.csproj", "{D8C35107-2C3C-4514-8DF3-EA5C25004D8A}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "webserverdeepdive.dockercompose.nginx.ui", "WebServerDeepDive.DockerCompose.Nginx.UI\webserverdeepdive.dockercompose.nginx.ui.esproj", "{C9779872-6D1A-8C06-D3C3-981B18FEFB85}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D8C35107-2C3C-4514-8DF3-EA5C25004D8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8C35107-2C3C-4514-8DF3-EA5C25004D8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8C35107-2C3C-4514-8DF3-EA5C25004D8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8C35107-2C3C-4514-8DF3-EA5C25004D8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9779872-6D1A-8C06-D3C3-981B18FEFB85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9779872-6D1A-8C06-D3C3-981B18FEFB85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9779872-6D1A-8C06-D3C3-981B18FEFB85}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{C9779872-6D1A-8C06-D3C3-981B18FEFB85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9779872-6D1A-8C06-D3C3-981B18FEFB85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9779872-6D1A-8C06-D3C3-981B18FEFB85}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9E8D1F89-3517-4887-BCA4-5B9366C65466}
+	EndGlobalSection
+EndGlobal
