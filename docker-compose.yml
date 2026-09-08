@@ -1,6 +1,7 @@
 services:
   api:
     image: ${DOCKER_REGISTRY-}webserverdeepdivedockercomposenginxapi
+    container_name: api
     build: 
       context: .
       dockerfile: WebServerDeepDive.DockerCompose.Nginx/Dockerfile
@@ -11,7 +12,11 @@ services:
     depends_on:
             db:
                 condition: service_healthy
+    networks:
+      - internal
+      - external
   app:
+    container_name: app
     build: 
       context: .
       dockerfile: WebServerDeepDive.DockerCompose.Nginx.UI/Dockerfile
@@ -20,6 +25,9 @@ services:
     volumes:
       - ui_data:/app
       - /app/node_modules/
+    networks:
+      - internal
+      - external
   proxy:
     build: 
       context: .
@@ -27,8 +35,11 @@ services:
     ports: 
       - 8080:80
     depends_on:
-      - app
+      #- app
       - api
+    networks:
+      - internal
+      - external
   db:
     image: postgres:16
     restart: unless-stopped
@@ -45,8 +56,16 @@ services:
             interval: 5s
             timeout: 5s
             retries: 5
+    networks:
+      - internal
 volumes:
   ui_data:
   db_data:
+
+networks:
+  internal:
+    name: api-internal-network
+  external:
+    name: api-network
 
 
